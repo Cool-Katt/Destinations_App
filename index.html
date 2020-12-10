@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Destinations</title>
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <!-- Scripts -->
+    <script src="./scripts/app.js" type="module" defer></script>
+</head>
+
+<body>
+    <!-- Notifications -->
+    <div>
+        <div class="notification loadingBox">
+            Loading …
+        </div>
+        <div class="notification infoBox">
+            Info
+        </div>
+        <div class="notification errorBox">
+            Error: destination name can't be empty!
+        </div>
+    </div>
+    <div id="container">
+        <div id="root"></div>
+        <!-- Footer  -->
+        <footer>@SoftUni Destinations 2020</footer>
+    </div>
+    <script>
+        function notify(message, type = 'notification loadingBox') {
+            let notificationElement;
+            console.log(notificationElement)
+            switch (type) {
+                case 'notification infoBox':
+                    notificationElement = document.getElementsByClassName('notification infoBox')[0];
+                    break;
+                case 'notification errorBox':
+                    notificationElement = document.getElementsByClassName('notification errorBox')[0];
+                    break;
+                case 'notification loadingBox':
+                    notificationElement = document.getElementsByClassName('notification loadingBox')[0];
+                    break;
+            }
+            notificationElement.innerText = message;
+            notificationElement.style.display = 'block';
+            setTimeout(() => {
+                notificationElement.style.display = 'none';
+            }, 3000);
+            notificationElement.addEventListener("click", (e) => {
+                notificationElement.style.display = 'none';
+            })
+        }
+    </script>
+</body>
+
+</html>
